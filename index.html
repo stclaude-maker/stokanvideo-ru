@@ -128,6 +128,10 @@ h2{font-size:clamp(26px,3.6vw,38px);line-height:1.2;margin:0 0 12px}
 .reel strong{position:relative;font-size:17px;line-height:1.3}
 .reel small{position:relative;color:var(--muted)}
 .reel:hover{border-color:var(--accent)}
+.reel.has-img{background-size:cover;background-position:center}
+.reel.has-img::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.88),rgba(0,0,0,.15) 60%)}
+.reel.has-img .play{opacity:.95;text-shadow:0 2px 12px rgba(0,0,0,.6)}
+
 blockquote{margin:0;background:var(--bg2);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:var(--radius);padding:28px;font-size:19px}
 blockquote footer{margin-top:14px;font-size:15px;color:var(--muted)}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s;list-style:none;padding:0;margin:0}
@@ -227,8 +231,8 @@ footer.site .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:
       <div class="portfolio">
         <a class="reel" href="https://www.instagram.com/reel/DZRRT2jkh72/" target="_blank" rel="noopener"><span class="tag">Монтаж</span><span class="play" aria-hidden="true">▶</span><strong>Клиент всегда прав?</strong><small>Instagram Reels</small></a>
         <a class="reel" href="https://www.instagram.com/reel/DcQHSveiZMV/" target="_blank" rel="noopener"><span class="tag">Монтаж</span><span class="play" aria-hidden="true">▶</span><strong>Финансовая модель производства</strong><small>Instagram Reels</small></a>
-        <a class="reel g" href="https://www.instagram.com/reel/DUVHggnCHS9/" target="_blank" rel="noopener"><span class="tag">С графикой</span><span class="play" aria-hidden="true">▶</span><strong>Если девелопер…</strong><small>Instagram Reels</small></a>
-        <a class="reel g" href="https://www.instagram.com/reel/DUaT9Q_DIA9/" target="_blank" rel="noopener"><span class="tag">С графикой</span><span class="play" aria-hidden="true">▶</span><strong>Своё парковочное место</strong><small>Instagram Reels</small></a>
+        <a class="reel g has-img" style="background-image:url(img/developer.jpg)" href="https://www.instagram.com/reel/DUVHggnCHS9/" target="_blank" rel="noopener"><span class="tag">С графикой</span><span class="play" aria-hidden="true">▶</span><strong>Если девелопер…</strong><small>Instagram Reels</small></a>
+        <a class="reel g has-img" style="background-image:url(img/parking.jpg)" href="https://www.instagram.com/reel/DUaT9Q_DIA9/" target="_blank" rel="noopener"><span class="tag">С графикой</span><span class="play" aria-hidden="true">▶</span><strong>Своё парковочное место</strong><small>Instagram Reels</small></a>
         <a class="reel g" href="https://disk.yandex.ru/i/ef1Iqp64Xh2_4A" target="_blank" rel="noopener"><span class="tag">С графикой</span><span class="play" aria-hidden="true">▶</span><strong>При этом она периодически приезжала</strong><small>Яндекс Диск</small></a>
       </div>
     </div>
