@@ -161,7 +161,23 @@ footer.site .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:
   section{padding-block:56px}
 }
 @media (max-width:420px){.steps{grid-template-columns:1fr}}
+.cookie{position:fixed;left:16px;right:16px;bottom:16px;z-index:50;max-width:720px;margin:0 auto;background:#1b1b1b;border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-size:14px;color:var(--muted);box-shadow:0 10px 30px rgba(0,0,0,.5)}
+.cookie p{margin:0;flex:1 1 260px}
+.cookie a{color:var(--text)}
+.cookie[hidden]{display:none}
 </style>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function(m,e,t,r,i,k,a){
+m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+})(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113535398', 'ym');
+ym(113535398, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/113535398" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 </head>
 <body>
 
@@ -308,10 +324,27 @@ footer.site .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:
 
 <footer class="site">
   <div class="wrap">
-    <span>© 2026 Stokan Video — монтаж рилсов и шортсов</span>
+    <span>© 2026 Stokan Video — монтаж рилсов и шортсов · <a href="privacy.html">Политика конфиденциальности</a></span>
     <a href="https://stokanvideo.com/" hreflang="es">International version (ES / EN)</a>
   </div>
 </footer>
 
+<div class="cookie" id="cookie" hidden>
+  <p>Мы используем cookie и Яндекс Метрику, чтобы понимать, как улучшить сайт. Подробнее — в <a href="privacy.html">политике конфиденциальности</a>.</p>
+  <button class="btn btn-accent btn-sm" type="button" id="cookie-ok">Понятно</button>
+</div>
+<script>
+(function(){
+  var b=document.getElementById('cookie');
+  try{ if(!localStorage.getItem('cookieOk')) b.hidden=false; }catch(e){ b.hidden=false; }
+  document.getElementById('cookie-ok').onclick=function(){ b.hidden=true; try{localStorage.setItem('cookieOk','1');}catch(e){} };
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a'); if(!a||typeof ym!=='function') return;
+    var h=a.getAttribute('href')||'';
+    var g=h.indexOf('t.me/')>-1?'telegram':h.indexOf('wa.me/')>-1?'whatsapp':h.indexOf('mailto:')===0?'email':(a.closest('.reel')?'portfolio':null);
+    if(g) ym(113535398,'reachGoal',g);
+  });
+})();
+</script>
 </body>
 </html>
