@@ -119,7 +119,14 @@ h2{font-size:clamp(26px,3.6vw,38px);line-height:1.2;margin:0 0 12px}
 .card ul li{margin-bottom:6px}
 .card .btn{margin-top:auto;align-self:flex-start}
 .note{color:var(--muted);font-size:14px;margin-top:18px}
-.portfolio{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px}
+.portfolio{overflow:hidden;margin-inline:-20px;padding-block:6px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.track{display:flex;gap:16px;width:max-content;animation:conveyor 45s linear infinite}
+.track .dup{display:contents}
+.portfolio:hover .track,.portfolio:focus-within .track{animation-play-state:paused}
+.track .reel{width:200px;flex:0 0 200px}
+@keyframes conveyor{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 8px))}}
+@media (prefers-reduced-motion:reduce){.track{animation:none}.portfolio{overflow-x:auto}}
+@media (max-width:760px){.track .reel{width:160px;flex-basis:160px}.track{animation-duration:35s}}
 .reel{position:relative;aspect-ratio:9/16;border-radius:var(--radius);overflow:hidden;text-decoration:none;display:flex;flex-direction:column;justify-content:flex-end;padding:18px;border:1px solid var(--line);background:linear-gradient(160deg,#2a1a14,#0e0e0e 70%)}
 .reel.g{background:linear-gradient(160deg,#0e2a28,#0e0e0e 70%)}
 .reel .tag{position:absolute;top:14px;left:14px;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;background:rgba(255,87,34,.15);color:var(--accent)}
@@ -228,13 +235,24 @@ footer.site .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:
   <section id="portfolio">
     <div class="wrap">
       <h2>Портфолио</h2>
-      <p class="sub">Несколько последних работ. Полные версии роликов покажу в переписке.</p>
+      <p class="sub">Несколько последних работ — нажмите на ролик, чтобы посмотреть его целиком.</p>
       <div class="portfolio">
-        <a class="reel has-img" style="background-image:url(img/client.jpg)" href="https://vk.ru/clip-182605157_456239155" target="_blank" rel="noopener"><span class="tag">Монтаж</span><span class="play" aria-hidden="true">▶</span><strong>Клиент всегда прав?</strong><small>VK Клипы</small></a>
-        <a class="reel has-img" style="background-image:url(img/finmodel.jpg)" href="https://vk.ru/clip-182605157_456239194" target="_blank" rel="noopener"><span class="tag">Монтаж</span><span class="play" aria-hidden="true">▶</span><strong>Финансовая модель производства</strong><small>VK Клипы</small></a>
-        <div class="reel g has-img" style="background-image:url(img/developer.jpg)"><span class="tag">С графикой</span><span class="play" aria-hidden="true">▶</span><strong>Депозит до старта продаж</strong><small>Рилс 9:16</small></div>
-        <div class="reel g has-img" style="background-image:url(img/parking.jpg)"><span class="tag">С графикой</span><span class="play" aria-hidden="true">▶</span><strong>Сравним варианты?</strong><small>Рилс 9:16</small></div>
-        <a class="reel g has-img" style="background-image:url(img/rental.jpg)" href="https://disk.yandex.ru/i/ef1Iqp64Xh2_4A" target="_blank" rel="noopener"><span class="tag">С графикой</span><span class="play" aria-hidden="true">▶</span><strong>Ловушка посуточной аренды</strong><small>Яндекс Диск</small></a>
+        <div class="track">
+          <a class="reel has-img" style="background-image:url(img/client.jpg)" href="https://vk.ru/clip-182605157_456239155" target="_blank" rel="noopener"><span class="tag">Монтаж</span><strong>Клиент всегда прав?</strong><small>VK Клипы</small></a>
+          <a class="reel g has-img" style="background-image:url(img/developer.jpg)" href="https://dzen.ru/shorts/698c327822212d7dbf5df07c" target="_blank" rel="noopener"><span class="tag">С графикой</span><strong>Заплатили — а квартиры нет?</strong><small>Дзен</small></a>
+          <a class="reel has-img" style="background-image:url(img/finmodel.jpg)" href="https://vk.ru/clip-182605157_456239194" target="_blank" rel="noopener"><span class="tag">Монтаж</span><strong>Финансовая модель производства</strong><small>VK Клипы</small></a>
+          <a class="reel g has-img" style="background-image:url(img/rent9.jpg)" href="https://dzen.ru/shorts/69a92e79d94b04614e7cf19d" target="_blank" rel="noopener"><span class="tag">С графикой</span><strong>Пусть сдаётся квартира</strong><small>Дзен</small></a>
+          <div class="reel g has-img" style="background-image:url(img/parking.jpg)"><span class="tag">С графикой</span><strong>Сравним варианты?</strong><small>Рилс 9:16</small></div>
+          <a class="reel g has-img" style="background-image:url(img/rental.jpg)" href="https://disk.yandex.ru/i/ef1Iqp64Xh2_4A" target="_blank" rel="noopener"><span class="tag">С графикой</span><strong>Ловушка посуточной аренды</strong><small>Яндекс Диск</small></a>
+          <div class="dup" aria-hidden="true">
+          <a class="reel has-img" style="background-image:url(img/client.jpg)" href="https://vk.ru/clip-182605157_456239155" target="_blank" rel="noopener" tabindex="-1"><span class="tag">Монтаж</span><strong>Клиент всегда прав?</strong><small>VK Клипы</small></a>
+          <a class="reel g has-img" style="background-image:url(img/developer.jpg)" href="https://dzen.ru/shorts/698c327822212d7dbf5df07c" target="_blank" rel="noopener" tabindex="-1"><span class="tag">С графикой</span><strong>Заплатили — а квартиры нет?</strong><small>Дзен</small></a>
+          <a class="reel has-img" style="background-image:url(img/finmodel.jpg)" href="https://vk.ru/clip-182605157_456239194" target="_blank" rel="noopener" tabindex="-1"><span class="tag">Монтаж</span><strong>Финансовая модель производства</strong><small>VK Клипы</small></a>
+          <a class="reel g has-img" style="background-image:url(img/rent9.jpg)" href="https://dzen.ru/shorts/69a92e79d94b04614e7cf19d" target="_blank" rel="noopener" tabindex="-1"><span class="tag">С графикой</span><strong>Пусть сдаётся квартира</strong><small>Дзен</small></a>
+          <div class="reel g has-img" style="background-image:url(img/parking.jpg)"><span class="tag">С графикой</span><strong>Сравним варианты?</strong><small>Рилс 9:16</small></div>
+          <a class="reel g has-img" style="background-image:url(img/rental.jpg)" href="https://disk.yandex.ru/i/ef1Iqp64Xh2_4A" target="_blank" rel="noopener" tabindex="-1"><span class="tag">С графикой</span><strong>Ловушка посуточной аренды</strong><small>Яндекс Диск</small></a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
