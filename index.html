@@ -65,7 +65,7 @@
         {"@type": "Question", "name": "Сколько времени занимает монтаж?", "acceptedAnswer": {"@type": "Answer", "text": "Обычно готовый ролик — за 2 дня после получения исходников и брифа. Для регулярного контента договариваемся о графике."}},
         {"@type": "Question", "name": "Что нужно прислать для монтажа?", "acceptedAnswer": {"@type": "Answer", "text": "Исходное видео (сырой материал) и пожелания по стилю. Если есть референсы — ролики, которые вам нравятся, — пришлите их, я подстроюсь."}},
         {"@type": "Question", "name": "Сколько правок входит в стоимость?", "acceptedAnswer": {"@type": "Answer", "text": "Правки входят в стоимость. На практике их почти нет — разве что мелкие технические."}},
-        {"@type": "Question", "name": "Для каких площадок вы монтируете?", "acceptedAnswer": {"@type": "Answer", "text": "Instagram Reels, YouTube Shorts, TikTok, VK Клипы и VK Видео — формат 9:16 с учётом безопасных зон каждой площадки."}},
+        {"@type": "Question", "name": "Для каких площадок вы монтируете?", "acceptedAnswer": {"@type": "Answer", "text": "VK Клипы, VK Видео, YouTube Shorts, TikTok и другие площадки с вертикальным видео — формат 9:16 с учётом безопасных зон каждой площадки."}},
         {"@type": "Question", "name": "Можно ли заказать рилсы с анимацией и инфографикой?", "acceptedAnswer": {"@type": "Answer", "text": "Да. В монтаже с графикой добавляю иллюстрации, motion-вставки, инфографику и анимированные акценты — от 3 500 ₽ за ролик."}}
       ]
     }
@@ -128,9 +128,10 @@ h2{font-size:clamp(26px,3.6vw,38px);line-height:1.2;margin:0 0 12px}
 .reel strong{position:relative;font-size:17px;line-height:1.3}
 .reel small{position:relative;color:var(--muted)}
 .reel:hover{border-color:var(--accent)}
-.reel.has-img{background-size:cover;background-position:center}
-.reel.has-img::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.88),rgba(0,0,0,.15) 60%)}
-.reel.has-img .play{opacity:.95;text-shadow:0 2px 12px rgba(0,0,0,.6)}
+.reel.has-img{aspect-ratio:9/20.5;background-color:#141414;background-size:100% auto;background-position:top center;background-repeat:no-repeat}
+.reel.has-img::before{content:"";position:absolute;left:0;right:0;bottom:0;height:40%;background:linear-gradient(to top,#141414 58%,rgba(20,20,20,0))}
+.reel.has-img .play{display:none}
+.reel.has-img .tag{background:rgba(0,0,0,.7)}
 
 blockquote{margin:0;background:var(--bg2);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:var(--radius);padding:28px;font-size:19px}
 blockquote footer{margin-top:14px;font-size:15px;color:var(--muted)}
@@ -193,7 +194,7 @@ footer.site .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:
   <section id="services">
     <div class="wrap">
       <h2>Услуги и цены</h2>
-      <p class="sub">Монтирую вертикальные видео 9:16 для Instagram Reels, YouTube Shorts, TikTok и VK Клипов.</p>
+      <p class="sub">Монтирую вертикальные видео 9:16 для VK Клипов, YouTube Shorts, TikTok и других площадок.</p>
       <div class="grid2">
         <article class="card orange">
           <h3>Монтаж рилсов и шортсов</h3>
@@ -227,13 +228,13 @@ footer.site .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:
   <section id="portfolio">
     <div class="wrap">
       <h2>Портфолио</h2>
-      <p class="sub">Несколько последних рилсов — откроются на площадке, где опубликованы.</p>
+      <p class="sub">Несколько последних работ. Полные версии роликов покажу в переписке.</p>
       <div class="portfolio">
-        <a class="reel has-img" style="background-image:url(img/client.jpg)" href="https://www.instagram.com/reel/DZRRT2jkh72/" target="_blank" rel="noopener"><span class="tag">Монтаж</span><span class="play" aria-hidden="true">▶</span><strong>Клиент всегда прав?</strong><small>Instagram Reels</small></a>
-        <a class="reel has-img" style="background-image:url(img/finmodel.jpg)" href="https://www.instagram.com/reel/DcQHSveiZMV/" target="_blank" rel="noopener"><span class="tag">Монтаж</span><span class="play" aria-hidden="true">▶</span><strong>Финансовая модель производства</strong><small>Instagram Reels</small></a>
-        <a class="reel g has-img" style="background-image:url(img/developer.jpg)" href="https://www.instagram.com/reel/DUVHggnCHS9/" target="_blank" rel="noopener"><span class="tag">С графикой</span><span class="play" aria-hidden="true">▶</span><strong>Если девелопер…</strong><small>Instagram Reels</small></a>
-        <a class="reel g has-img" style="background-image:url(img/parking.jpg)" href="https://www.instagram.com/reel/DUaT9Q_DIA9/" target="_blank" rel="noopener"><span class="tag">С графикой</span><span class="play" aria-hidden="true">▶</span><strong>Своё парковочное место</strong><small>Instagram Reels</small></a>
-        <a class="reel g" href="https://disk.yandex.ru/i/ef1Iqp64Xh2_4A" target="_blank" rel="noopener"><span class="tag">С графикой</span><span class="play" aria-hidden="true">▶</span><strong>При этом она периодически приезжала</strong><small>Яндекс Диск</small></a>
+        <div class="reel has-img" style="background-image:url(img/client.jpg)"><span class="tag">Монтаж</span><span class="play" aria-hidden="true">▶</span><strong>Клиент всегда прав?</strong><small>Рилс 9:16</small></div>
+        <div class="reel has-img" style="background-image:url(img/finmodel.jpg)"><span class="tag">Монтаж</span><span class="play" aria-hidden="true">▶</span><strong>Финансовая модель производства</strong><small>Рилс 9:16</small></div>
+        <div class="reel g has-img" style="background-image:url(img/developer.jpg)"><span class="tag">С графикой</span><span class="play" aria-hidden="true">▶</span><strong>Депозит до старта продаж</strong><small>Рилс 9:16</small></div>
+        <div class="reel g has-img" style="background-image:url(img/parking.jpg)"><span class="tag">С графикой</span><span class="play" aria-hidden="true">▶</span><strong>Сравним варианты?</strong><small>Рилс 9:16</small></div>
+        <a class="reel g has-img" style="background-image:url(img/rental.jpg)" href="https://disk.yandex.ru/i/ef1Iqp64Xh2_4A" target="_blank" rel="noopener"><span class="tag">С графикой</span><span class="play" aria-hidden="true">▶</span><strong>Ловушка посуточной аренды</strong><small>Яндекс Диск</small></a>
       </div>
     </div>
   </section>
@@ -243,7 +244,7 @@ footer.site .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:
       <h2>Отзыв клиента</h2>
       <blockquote>
         «С вами правок почти ноль — разве что мелкие технические. Вы стабильно на шаг опережаете мой запрос: подмечаете детали, которые я даже не просил, но которые ролик заметно улучшают. Опыт виден сразу.»
-        <footer>Степан Шерстнёв — рилсы и шортсы для Instagram, TikTok, VK Видео, YouTube</footer>
+        <footer>Степан Шерстнёв — рилсы и шортсы для VK Видео, TikTok и YouTube</footer>
       </blockquote>
     </div>
   </section>
@@ -268,7 +269,7 @@ footer.site .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:
       <details><summary>Сколько времени занимает монтаж?</summary><p>Обычно готовый ролик — за 2 дня после получения исходников и брифа. Для регулярного контента договариваемся о графике.</p></details>
       <details><summary>Что нужно прислать для монтажа?</summary><p>Исходное видео (сырой материал) и пожелания по стилю. Если есть референсы — ролики, которые вам нравятся, — пришлите их, я подстроюсь.</p></details>
       <details><summary>Сколько правок входит в стоимость?</summary><p>Правки входят в стоимость. На практике их почти нет — разве что мелкие технические.</p></details>
-      <details><summary>Для каких площадок вы монтируете?</summary><p>Instagram Reels, YouTube Shorts, TikTok, VK Клипы и VK Видео — формат 9:16 с учётом безопасных зон каждой площадки.</p></details>
+      <details><summary>Для каких площадок вы монтируете?</summary><p>VK Клипы, VK Видео, YouTube Shorts, TikTok и другие площадки с вертикальным видео — формат 9:16 с учётом безопасных зон каждой площадки.</p></details>
       <details><summary>Можно ли заказать рилсы с анимацией и инфографикой?</summary><p>Да. В монтаже с графикой добавляю иллюстрации, motion-вставки, инфографику и анимированные акценты — от 3 500 ₽ за ролик.</p></details>
     </div>
   </section>
